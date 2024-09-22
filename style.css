@@ -1,0 +1,121 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #555;
+}
+
+.calculator-container,
+.display-container,
+.button {
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.calculator-container {
+  background-color: lightgrey;
+  height: 335px;
+  margin: 40px auto;
+  width: 300px;
+}
+
+.buttons-container,
+.display-container {
+  margin: 20px 10px;
+}
+
+.display-container,
+.buttons-container,
+.display,
+.button-row {
+  display: flex;
+}
+
+.display-container {
+  background-color: white;
+  height: 40px;
+  flex-direction: column-reverse;
+}
+
+.display {
+  align-self: flex-end;
+  font-size: xx-large;
+  flex-direction: column-reverse;
+}
+
+.buttons-container {
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button-row {
+  gap: 10px;
+}
+
+.button {
+  flex: 1;
+  font-size: larger;
+  font-weight: lighter;
+  height: 50px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.operator,
+.clear {
+  color: white;
+  font-weight: bolder;
+}
+
+.operator {
+  background-color: #444;
+}
+
+.clear {
+  background-color: red;
+}
+
+.button:hover,
+.operator:hover,
+.clear:hover {
+  transform: scale(1.05);
+}
+
+.button:hover {
+  background-color: #ddd;
+}
+
+.operator:hover {
+  background-color: #777;
+}
+
+.clear:hover {
+  background-color: darkred;
+}
+
+.button:active,
+.operator:active,
+.clear:active {
+  transform: scale(0.95);
+  transition: background-color 0.1s, transform 0.1s;
+}
+
+.button:active {
+  background-color: #bbb;
+}
+
+.operator:active {
+  background-color: #333;
+}
+
+.clear:active {
+  background-color: darkred;
+}
