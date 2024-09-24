@@ -1,3 +1,4 @@
+const OPERATORS = "+-x/";
 let firstNumber = null;
 let secondNumber = null;
 let operator = null;
@@ -7,7 +8,7 @@ const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => button.addEventListener("click", handleClick));
 
 function add(num, num2) {
-  return +num + num2;
+  return +num + +num2;
 }
 
 function subtract(num, num2) {
@@ -15,11 +16,11 @@ function subtract(num, num2) {
 }
 
 function multiply(num, num2) {
-  return num - num2;
+  return num * num2;
 }
 
 function divide(num, num2) {
-  return num / num2;
+  return (num / num2).toFixed(1);
 }
 
 function operate(operator, num, num2) {
@@ -30,7 +31,7 @@ function operate(operator, num, num2) {
     case "-":
       return subtract(num, num2);
       break;
-    case "*":
+    case "x":
       return multiply(num, num2);
       break;
     case "/":
@@ -53,7 +54,9 @@ function handleClick(event) {
       displayValue.innerText = DEFAULT_VALUE;
       break;
     case EQUAl_VALUE:
-      
+      if (isValidExpression(displayValue.innerText)) {
+        displayValue.innerText = operate(operator, firstNumber, secondNumber);
+      }
       break;
     default:
       if (isValidInput(value)) {
@@ -65,7 +68,6 @@ function handleClick(event) {
 
 function isValidInput(value) {
   const display = displayValue.innerText;
-  const OPERATORS = "+-x/";
   const MAX_SIZE = 14;
 
   if (display.length === MAX_SIZE) {
@@ -87,4 +89,17 @@ function isValidInput(value) {
   }
 
   return true;
+}
+
+function isValidExpression(expression) {
+  const parts = expression.split(/[+\-x/]/).filter((part) => part !== "");
+
+  if (parts.length === 2) {
+    firstNumber = parts[0];
+    secondNumber = parts[1];
+    operator = expression.charAt(expression.search(/[+\-x/]/));
+    return true;
+  }
+
+  return false;
 }
