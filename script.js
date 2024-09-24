@@ -20,6 +20,9 @@ function multiply(num, num2) {
 }
 
 function divide(num, num2) {
+  if (num2 === "0") {
+    return "Zero? Really??";
+  }
   return (num / num2).toFixed(1);
 }
 
