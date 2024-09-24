@@ -41,7 +41,7 @@ body {
 }
 
 .display-container {
-  background-color: white;
+  background-color: lightgreen;
   height: 40px;
   flex-direction: column-reverse;
 }
