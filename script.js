@@ -49,12 +49,16 @@ function handleClick(event) {
   const DEFAULT_VALUE = "";
   const CLEAR_VALUE = "c";
   const EQUAl_VALUE = "=";
+  const BACKSPACE_VALUE = "⌫";
 
   const value = event.target.innerText;
 
   switch (value) {
     case CLEAR_VALUE:
       displayValue.innerText = DEFAULT_VALUE;
+      break;
+    case BACKSPACE_VALUE:
+      displayValue.innerText = displayValue.innerText.slice(0, -1);
       break;
     case EQUAl_VALUE:
       if (isValidExpression(displayValue.innerText)) {
