@@ -14,16 +14,16 @@ body {
   background-color: #555;
 }
 
+.button,
 .calculator-container,
-.display-container,
-.button {
+.display-container {
   border: 2px solid black;
   border-radius: 4px;
 }
 
 .calculator-container {
   background-color: lightgrey;
-  height: 335px;
+  height: 395px;
   margin: 40px auto;
   width: 300px;
 }
@@ -33,16 +33,16 @@ body {
   margin: 20px 10px;
 }
 
-.display-container,
 .buttons-container,
+.button-row,
 .display,
-.button-row {
+.display-container {
   display: flex;
 }
 
 .display-container {
   background-color: lightgreen;
-  height: 40px;
+  height: 45px;
   flex-direction: column-reverse;
 }
 
@@ -69,12 +69,14 @@ body {
   transition: background-color 0.3s, transform 0.3s;
 }
 
-.operator,
-.clear {
+.backspace,
+.clear,
+.operator {
   color: white;
   font-weight: bolder;
 }
 
+.backspace,
 .operator {
   background-color: #444;
 }
@@ -83,9 +85,10 @@ body {
   background-color: red;
 }
 
+.backspace:hover,
 .button:hover,
-.operator:hover,
-.clear:hover {
+.clear:hover,
+.operator:hover {
   transform: scale(1.05);
 }
 
@@ -93,17 +96,19 @@ body {
   background-color: #ddd;
 }
 
+.backspace:hover,
 .operator:hover {
-  background-color: #777;
+  background-color: #222;
 }
 
 .clear:hover {
   background-color: darkred;
 }
 
+.backspace:active,
 .button:active,
-.operator:active,
-.clear:active {
+.clear:active,
+.operator:active {
   transform: scale(0.95);
   transition: background-color 0.1s, transform 0.1s;
 }
@@ -112,8 +117,9 @@ body {
   background-color: #bbb;
 }
 
+.backspace:active,
 .operator:active {
-  background-color: #333;
+  background-color: #444;
 }
 
 .clear:active {
