@@ -81,11 +81,24 @@ function isValidInput(value) {
     return false;
   }
 
-  if (display === "" && OPERATORS.includes(value)) {
+  if (display.startsWith("-")) {
     return false;
   }
 
-  if (OPERATORS.includes(display.slice(-1)) && OPERATORS.includes(value)) {
+  if (display === "" && (OPERATORS.includes(value) || value === ".")) {
+    return false;
+  }
+
+  if (
+    (OPERATORS.includes(display.slice(-1)) || display.slice(-1) === ".") &&
+    (OPERATORS.includes(value) || value === ".")
+  ) {
+    return false;
+  }
+
+  const parts = display.split(/[+\-x/]/);
+  const currentNumber = parts[parts.length - 1];
+  if (currentNumber.includes(".") && value === ".") {
     return false;
   }
 
