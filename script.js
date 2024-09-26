@@ -16,14 +16,14 @@ function subtract(num, num2) {
 }
 
 function multiply(num, num2) {
-  return num * num2;
+  return Math.round(num * num2 * 10) / 10;
 }
 
 function divide(num, num2) {
   if (num2 === "0") {
     return "Zero? Really??";
   }
-  return (num / num2).toFixed(1);
+  return Math.round(num / num2 * 10) / 10;
 }
 
 function operate(operator, num, num2) {
